@@ -19,9 +19,15 @@ It is depended on OfbPubSub library.
 			return false;
 		}
 
+		if(channelName.length > 30) {
+			alert('Channel Name cannot be more than 30 characters');
+			throw "Channel length exceeded";
+			return false;
+		}
+
 		// else subscribe for a channel
 		var subscriber = function( channel, messageObj ){
-			var newHtml = '<div class="alert alert-warning"><strong><em>'+channel+'</em></strong> : '+messageObj+'</div>';
+			var newHtml = '<div class="alert alert-warning"><strong><em>'+channel+'</em></strong> : <span class="wrap">'+messageObj+'</span></div>';
 			$('#alerts').append(newHtml);
 		    console.log( channel, messageObj );
 		};

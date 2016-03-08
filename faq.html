@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>OfbPubSub FAQ</title>
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+		<link rel="stylesheet" href="css/style.css">
+
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body class="documentation">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<h1 class="text-center">OfbPubSub FAQ</h1>
+				</div>
+			</div>
+
+			<div class="row faq">
+				<div class="col-sm-12">
+					<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+					  	<div class="panel panel-default">
+						    <div class="panel-heading" role="tab" id="headingOne">
+						      	<h4 class="panel-title">
+						        	<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+						          		How to create subscriber?
+						        	</a>
+						      	</h4>
+						    </div>
+					    	<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+					      		<div class="panel-body">
+					        		Enter the channel name for which you want to subscribe for, and hit submit it will create a channel into the system if its not already there.
+					      		</div>
+					    	</div>
+					  	</div>
+
+					  	<div class="panel panel-default">
+						    <div class="panel-heading" role="tab" id="headingTwo">
+						      	<h4 class="panel-title">
+						        	<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+						          		Where can I see all the current channels I subscribed for?
+						        	</a>
+						      	</h4>
+						    </div>
+					    	<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+					      		<div class="panel-body">
+					        		On your left hand side, there will be a list of all the channels you subscribed for
+					      		</div>
+					    	</div>
+					  	</div>
+
+					  	<div class="panel panel-default">
+						    <div class="panel-heading" role="tab" id="headingThree">
+						      	<h4 class="panel-title">
+						        	<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+						          		How to unsubscribe for particular channel?
+						        	</a>
+						      	</h4>
+						    </div>
+					    	<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+					      		<div class="panel-body">
+					        		There will be (X) sign on the right hand side of each channel in the list, press that and it will unsubscribe you for that channel.
+					      		</div>
+					    	</div>
+					  	</div>
+
+					  	<div class="panel panel-default">
+						    <div class="panel-heading" role="tab" id="headingFour">
+						      	<h4 class="panel-title">
+						        	<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+						          		How can I unsubscribe from all the channels?
+						        	</a>
+						      	</h4>
+						    </div>
+					    	<div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+					      		<div class="panel-body">
+					        		There is a red colour button namely, 'UnsubscribeaAll', press that and it will unsubscribe you from all the current channels you are listening for.
+					      		</div>
+					    	</div>
+					  	</div>
+
+					  	<div class="panel panel-default">
+						    <div class="panel-heading" role="tab" id="headingFive">
+						      	<h4 class="panel-title">
+						        	<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+						          		How can I publish message on particular channel?
+						        	</a>
+						      	</h4>
+						    </div>
+					    	<div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+					      		<div class="panel-body">
+					        		On publisher screen, enter your messgae/data in input field, select the channel in which you want to broadcast your message/data from the drop down list of available channels and press publish. It will broadcast your message into that channel.
+					      		</div>
+					    	</div>
+					  	</div>
+					</div>
+				</div>
+			</div>
+
+			<hr />
+
+			<div class="row faq">
+				<div class="col-sm-12">
+					<h1 class="text-center">OfbPubSub Javascript Public Functions</h1>
+				</div>
+
+				<div class="col-sm-12 api">
+					<h3>- To subscribe for a channel</h3>
+					<code>var subscriptionId = OfbPubSub.subscribe('channel1', subscriber);</code>
+					<p>
+						where, <br/>
+						<span class="api-span"><strong>channel1</strong> - is name of channel which you want to subscribe for</span>
+						<span class="api-span"><strong>subscriber</strong> - is a function, which will execute when some message publish on the channel</span>
+					</p><br/>
+					<h4>Basic example of subscriber function</h4>
+					<code>var subscriber = function(channel, messageObj) {
+							console.log(channel, messageObj);
+					};</code>
+				</div>
+				
+				<div class="col-sm-12 api">
+					<h3>- To publish some message in particular channel</h3>
+					<code>OfbPubSub.publish('channel1', messageObj);</code>
+					<p>
+						where, <br/>
+						<span class="api-span"><strong>channel1</strong> - is a name of channel where you want to broadcast your message</span>
+						<span class="api-span"><strong>messageObj</strong> - is a message, it can be text or simple object</span>
+					</p>
+				</div>
+
+				<div class="col-sm-12 api">
+					<h3>- To unsubscribe from channel using subscriptionID</h3>
+					<code>OfbPubSub.unsubscribe(subscriptionId);</code>
+					<p>
+						where, <br/>
+						<span class="api-span"><strong>subscriptionId</strong> - is the channel unique ID, which your get while subscribing for that channe (refer to API 1)</span>
+					</p>
+				</div>
+
+				<div class="col-sm-12 api">
+					<h3>- To unsubscribe from channel using channel name</h3>
+					<code>OfbPubSub.unsubscribe('channel1');</code>
+					<p>
+						where, <br/>
+						<span class="api-span"><strong>channel1</strong> - is the name of a particular channel</span>
+					</p>
+				</div>
+
+				<div class="col-sm-12 api">
+					<h3>- To unsubscribe all subscription of a subscriber method</h3>
+					<code>OfbPubSub.unsubscribe(subscriber);</code>
+					<p>
+						where, <br/>
+						<span class="api-span"><strong>subscriber</strong> - is a subscriber function</span>
+					</p>
+				</div>
+
+				<div class="col-sm-12 api">
+					<h3>- To unsubscribe all subscription of a subscriber method</h3>
+					<code>OfbPubSub.unsubscribeAll();</code>
+					<p>
+						It will remove all the channels you subscribed for
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- jQuery -->
+		<script src="http://code.jquery.com/jquery.js"></script>
+		<!-- Bootstrap JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	</body>
+</html>

@@ -1,0 +1,29 @@
+.screen {
+	height: 100vh;
+}
+
+.screen:first-child {
+	border-right: 1px #CCC solid;
+}
+
+.screen h2 {
+	margin-bottom: 50px;
+}
+
+.screen h2::after {
+	content: '';
+	display: block;
+    height: 3px;
+    width: 50px;
+    background: #222;
+    margin-top: 10px;
+    margin: 10px auto 0;
+}
+
+.btn-block {
+	display: block;
+}
+
+#alerts {
+	margin-top: 30px;
+}

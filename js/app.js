@@ -12,6 +12,7 @@ It is depended on OfbPubSub library.
 		e.preventDefault();
 		var channelName = $('#createChannel').val();
 		channelName = $.trim(channelName);
+		channelName = channelName.replace(/<\/?[^>]+(>|$)/g, "");
 
 		// check whether channel name is not empty or undefined
 		if(channelName == undefined || channelName.length == 0) {
@@ -79,6 +80,7 @@ It is depended on OfbPubSub library.
 		e.preventDefault();
 		var channel = $('#publishChannel').val();
 		var message = $.trim($('#data').val());
+		message = message.replace(/<\/?[^>]+(>|$)/g, "");
 		if(!channel) {
 			throw "Invalid Channel";
 		}

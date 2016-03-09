@@ -18,17 +18,11 @@
 		return false;
 	}
 
-	function throwException(ex) {
-		return function throwErrorException() {
-			throw ex;
-		};
-	}
-
 	function pushToSubscriber(subscriber, channel, data) {
 		try {
 			subscriber(channel, data);
 		} catch( ex ){
-			setTimeout(throwException(ex), 0);
+			throw ex;
 		}
 	}
 
